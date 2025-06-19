@@ -19,6 +19,7 @@ namespace testTask.Validators
                 .NotNull().WithMessage("Укажите вес груза!")
                 .GreaterThan(0).WithMessage("Вес должен быть больше 0!");
             RuleFor(order => order.DatePickUp)
+                .NotEmpty().WithMessage("Укажите дату!")
                 .GreaterThanOrEqualTo(DateOnly.FromDateTime(DateTime.Now)).WithMessage("Нельзя выбрать дату забора груза из прошлого!");
         }
     }
