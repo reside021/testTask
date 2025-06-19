@@ -1,0 +1,28 @@
+﻿
+@model testTask.Models.Order
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Детали заказа";
+}
+
+<h1>Детали заказа</h1>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Город отправителя</dt>
+            <dd class="col-sm-9">@Model.CitySender</dd>
+            <dt class="col-sm-3">Адрес отправителя</dt>
+            <dd class="col-sm-9">@Model.AddressSender</dd>
+            <dt class="col-sm-3">Город получателя</dt>
+            <dd class="col-sm-9">@Model.CityRecipient</dd>
+            <dt class="col-sm-3">Адрес получателя</dt>
+            <dd class="col-sm-9">@Model.AddressRecipient</dd>
+            <dt class="col-sm-3">Вес груза</dt>
+            <dd class="col-sm-9">@Model.Weight</dd>
+            <dt class="col-sm-3">Дата забора груза</dt>
+            <dd class="col-sm-9">@Model.DatePickUp.ToString()</dd>
+        </dl>
+        <a asp-action="Index" class="btn btn-secondary">Назад к списку заказов</a>
+    </div>
+</div>

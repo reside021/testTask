@@ -1,0 +1,50 @@
+﻿@model testTask.Contracts.CreateOrderRequest
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Создание заказа";
+}
+
+<h1>Создание заказа</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CitySender" class="control-label">Город отправителя</label>
+        <input asp-for="CitySender" class="form-control" />
+        <span asp-validation-for="CitySender" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddressSender" class="control-label">Адрес отправителя</label>
+        <input asp-for="AddressSender" class="form-control" />
+        <span asp-validation-for="AddressSender" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CityRecipient" class="control-label">Город получателя</label>
+        <input asp-for="CityRecipient" class="form-control" />
+        <span asp-validation-for="CityRecipient" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddressRecipient" class="control-label">Адрес получателя</label>
+        <input asp-for="AddressRecipient" class="form-control" />
+        <span asp-validation-for="AddressRecipient" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Weight" class="control-label">Вес груза</label>
+        <input asp-for="Weight" class="form-control" type="number" min="0.1" step="0.1"/>
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DatePickUp" class="control-label">Дата забора груза</label>
+        <input asp-for="DatePickUp" class="form-control" type="date" />
+        <span asp-validation-for="DatePickUp" class="text-danger"></span>
+    </div>
+                                                                 
+    <button type="submit" class="btn btn-primary mt-2">Создать заказ</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Отмена</a>
+</form>

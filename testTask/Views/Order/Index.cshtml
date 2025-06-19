@@ -1,0 +1,46 @@
+﻿
+@model List<testTask.Models.Order>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Заказы";
+}
+
+<h1>Заказы</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Создать новый заказ</a>
+
+@if(Model.Count == 0)
+{
+    <h3>Заказов еще нет...</h3>
+}
+else
+{
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Город отправителя</th>
+                <th>Адрес отправителя</th>
+                <th>Город получателя</th>
+                <th>Адрес получателя</th>
+                <th>Вес груза</th>
+                <th>Дата забора груза</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr onclick="location.href = '@Url.Action("Details", "Order", new { id = order.Id})'">
+                    <td>@order.Id</td>
+                    <td>@order.CitySender</td>
+                    <td>@order.AddressSender</td>
+                    <td>@order.CityRecipient</td>
+                    <td>@order.AddressRecipient</td>
+                    <td>@order.Weight</td>
+                    <td>@order.DatePickUp</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
